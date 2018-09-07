@@ -4,7 +4,6 @@ import java.util.List;
 
 import co.com.hospital.screenplay.model.DatosPersonales;
 import co.com.hospital.screenplay.ui.HospitalSitePage;
-import co.com.hospital.screenplay.tasks.Apoyo;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -28,7 +27,6 @@ public class RealizarRegistro implements Task{
 			actor.attemptsTo(Enter.theValue(datosPersonales.get(0).getNombreCompleto()).into(HospitalSitePage.TEXTO_NOMBRE_COMPLETO_DOCTOR));
 			actor.attemptsTo(Enter.theValue(datosPersonales.get(0).getApellidos()).into(HospitalSitePage.TEXTO_APELLIDOS_DOCTOR));
 			actor.attemptsTo(Enter.theValue(datosPersonales.get(0).getTelefono()).into(HospitalSitePage.TEXTO_TELEFONO_DOCTOR));
-//			actor.attemptsTo(Enter.theValue(Apoyo.cedulaAleatoria(datosPersonales.get(0).getDocumentoDeIdentidad())).into(HospitalSitePage.TEXTO_NUMERO_DOCUMENTO_DOCTOR));
 			actor.attemptsTo(Enter.theValue(datosPersonales.get(0).getDocumentoDeIdentidad()).into(HospitalSitePage.TEXTO_NUMERO_DOCUMENTO_DOCTOR));
 			actor.attemptsTo(Click.on(HospitalSitePage.BOTON_GUARDAR_DOCTOR));
 		} else if(datosPersonales.get(0).getRegistro().equals("paciente")) {
@@ -36,14 +34,13 @@ public class RealizarRegistro implements Task{
 			actor.attemptsTo(Enter.theValue(datosPersonales.get(0).getNombreCompleto()).into(HospitalSitePage.TEXTO_NOMBRE_COMPLETO_PACIENTE));
 			actor.attemptsTo(Enter.theValue(datosPersonales.get(0).getApellidos()).into(HospitalSitePage.TEXTO_APELLIDOS_PACIENTE));
 			actor.attemptsTo(Enter.theValue(datosPersonales.get(0).getTelefono()).into(HospitalSitePage.TEXTO_TELEFONO_PACIENTE));
-//			actor.attemptsTo(Enter.theValue(Apoyo.cedulaAleatoria(datosPersonales.get(0).getDocumentoDeIdentidad())).into(HospitalSitePage.TEXTO_NUMERO_DOCUMENTO_PACIENTE));
 			actor.attemptsTo(Enter.theValue(datosPersonales.get(0).getDocumentoDeIdentidad()).into(HospitalSitePage.TEXTO_NUMERO_DOCUMENTO_PACIENTE));
 			actor.attemptsTo(Click.on(HospitalSitePage.BOTON_GUARDAR_DOCTOR));
 		}
 		
 	}
 
-	public static Performable IngresoInformacion(List<DatosPersonales> datosPersonales) {
+	public static Performable InformacionDoctorPaciente(List<DatosPersonales> datosPersonales) {
 		return Tasks.instrumented(RealizarRegistro.class,datosPersonales);
 	}
 	

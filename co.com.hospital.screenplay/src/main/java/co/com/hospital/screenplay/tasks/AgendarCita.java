@@ -1,9 +1,6 @@
 package co.com.hospital.screenplay.tasks;
 
 import java.util.List;
-
-import org.openqa.selenium.Keys;
-
 import co.com.hospital.screenplay.model.AgendamientoCita;
 import co.com.hospital.screenplay.ui.HospitalSitePage;
 import net.serenitybdd.screenplay.Actor;
@@ -31,7 +28,7 @@ private List<AgendamientoCita> agendamientoCita;
 		actor.attemptsTo(Click.on(HospitalSitePage.BOTON_GUARDAR_CITA));
 	}
 	
-	public static Performable AgendamientoCita(List<AgendamientoCita> agendamientoCita) {
+	public static Performable CitaMedica(List<AgendamientoCita> agendamientoCita) {
 		return Tasks.instrumented(AgendarCita.class,agendamientoCita);
 	}
 

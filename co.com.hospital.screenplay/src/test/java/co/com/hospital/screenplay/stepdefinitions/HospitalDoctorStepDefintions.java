@@ -49,12 +49,12 @@ public class HospitalDoctorStepDefintions {
 	
 	@Cuando("^el realiza el registro del mismo en el aplicativo de Administración de Hospitales$")
 	public void elRealizaElRegistroDelMismoEnElAplicativoDeAdministraciónDeHospitales(List<DatosPersonales> datosPersonales) throws Exception {
-		carlos.wasAbleTo(RealizarRegistro.IngresoInformacion(datosPersonales));
+		carlos.attemptsTo(RealizarRegistro.InformacionDoctorPaciente(datosPersonales));
 	}
 	
 	@Cuando("^el realiza el agendamiento de una Cita$")
 	public void elRealizaElAgendamientoDeUnaCita(List<AgendamientoCita> agendamientoCita) throws Exception {
-		carlos.wasAbleTo(AgendarCita.AgendamientoCita(agendamientoCita));
+		carlos.attemptsTo(AgendarCita.CitaMedica(agendamientoCita));
 	}
 
 	@Entonces("^el verifica que se presente en pantalla el mensaje (.*)$")
