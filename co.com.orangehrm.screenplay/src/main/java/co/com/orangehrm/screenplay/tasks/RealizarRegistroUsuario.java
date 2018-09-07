@@ -2,9 +2,9 @@ package co.com.orangehrm.screenplay.tasks;
 
 import java.util.List;
 
+import co.com.orangehrm.screenplay.interactions.Esperar;
 import co.com.orangehrm.screenplay.model.DatosPersonalesUsuario;
 import co.com.orangehrm.screenplay.ui.OrangeHrmSitePage;
-import co.com.orangehrm.screenplay.tasks.Apoyo;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -25,14 +25,14 @@ public class RealizarRegistroUsuario implements Task{
 		
 		actor.attemptsTo(Click.on(OrangeHrmSitePage.MENU_PIM));
 		actor.attemptsTo(Click.on(OrangeHrmSitePage.MENU_AGREGAR_USUARIO));
-		Apoyo.pausa(5);
+		actor.attemptsTo(Esperar.aMoment(15));
 		actor.attemptsTo(Enter.theValue(datosPersonales.get(0).getPrimerNombre()).into(OrangeHrmSitePage.TEXTO_PRIMER_NOMBRE));
 		actor.attemptsTo(Enter.theValue(datosPersonales.get(0).getSegundoNombre()).into(OrangeHrmSitePage.TEXTO_SEGUNDO_NOMBRE));
 		actor.attemptsTo(Enter.theValue(datosPersonales.get(0).getApellido()).into(OrangeHrmSitePage.TEXTO_APELLIDO));
 		actor.attemptsTo(Click.on(OrangeHrmSitePage.SELECT_UBICACION));
 		actor.attemptsTo(Click.on(OrangeHrmSitePage.SELECT_BRITISH));
 		actor.attemptsTo(Click.on(OrangeHrmSitePage.BOTON_GUARDAR));
-		Apoyo.pausa(15);
+		actor.attemptsTo(Esperar.aMoment(15));
 		actor.attemptsTo(Enter.theValue(datosPersonales.get(0).getFechaNacimiento()).into(OrangeHrmSitePage.TEXTO_FECHA_NACIMIENTO));
 		actor.attemptsTo(Click.on(OrangeHrmSitePage.SELECT_ESTADO_CIVIL));
 		actor.attemptsTo(Click.on(OrangeHrmSitePage.SELECT_CIVIL_STATUS));
@@ -49,7 +49,7 @@ public class RealizarRegistroUsuario implements Task{
 		actor.attemptsTo(Click.on(OrangeHrmSitePage.SELECT_A));
 		actor.attemptsTo(Enter.theValue(datosPersonales.get(0).getHobbies()).into(OrangeHrmSitePage.TEXTO_HOBBIES));
 		actor.attemptsTo(Click.on(OrangeHrmSitePage.BOTON_GUARDAR_IMPORTANTE));
-		Apoyo.pausa(15);
+		actor.attemptsTo(Esperar.aMoment(10));
 		
 		
 	}

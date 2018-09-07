@@ -4,9 +4,8 @@ import co.com.orangehrm.screenplay.ui.OrangeHrmSitePage;
 
 import java.util.List;
 
-import co.com.orangehrm.screenplay.model.DatosPersonalesUsuario;
+import co.com.orangehrm.screenplay.interactions.Esperar;
 import co.com.orangehrm.screenplay.model.PaginaValidacion;
-import co.com.orangehrm.screenplay.tasks.Apoyo;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
@@ -26,8 +25,7 @@ public class BuscarUsuario implements Task {
 		actor.attemptsTo(Click.on(OrangeHrmSitePage.MENU_LISTA_EMPLEADO));
 		actor.attemptsTo(Enter.theValue(paginaValidacion.get(0).getPrimerNombre()).into(OrangeHrmSitePage.TEXTO_BUSCAR));
 		actor.attemptsTo(Click.on(OrangeHrmSitePage.BOTON_BUSCAR));
-		Apoyo.pausa(10);
-	
+		actor.attemptsTo(Esperar.aMoment(10));
 	}
 
 	public static BuscarUsuario BuscarElUsuario(List<PaginaValidacion> paginaValidacion) {
